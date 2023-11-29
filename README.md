@@ -1,6 +1,6 @@
 <p><a target="_blank" href="https://app.eraser.io/workspace/6CY5E29m4gcAlKdMlCy3" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
 
-![Figure 1](/.eraser/6CY5E29m4gcAlKdMlCy3___JH7fWIylTdeOA9ICjaSasTFaXhh2___---figure---m6cqthfRffhA0vZ6bxw_L---figure---9cf2RfYTF6FiR9qu_ehN3g.png "Figure 1")
+![Figure 1](/.eraser/6CY5E29m4gcAlKdMlCy3___JH7fWIylTdeOA9ICjaSasTFaXhh2___---figure---VcqHIXrBeVCJ2H7Cjd-d0---figure---9cf2RfYTF6FiR9qu_ehN3g.png "Figure 1")
 
 # Web-Food-E_Commerce
 **Entities**
@@ -32,6 +32,8 @@
     - zip_code: The zip code.
     - country: The country.
     - is_primary: A flag indicating whether this is the customer's primary shipping address.
+
+
 **Relationships**
 
 - **One order has many order items:** A single order can have multiple order items.
