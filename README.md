@@ -31,12 +31,12 @@
 - country: The country.
 - is_primary: A flag indicating whether this is the customer's primary shipping address.
 **Relationships**
-
 - **One order has many order items:** A single order can have multiple order items.
 - **One product has many order items:** A single product can be ordered multiple times in a single order.
 - **One customer has many orders:** A single customer can place multiple orders.
 - **One customer has many addresses:** A single customer can have multiple shipping addresses.
 **One address belongs to one customer:** A single shipping address can only belong to one customer.
+
 
 
 <!--- Eraser file: https://app.eraser.io/workspace/6CY5E29m4gcAlKdMlCy3 --->
