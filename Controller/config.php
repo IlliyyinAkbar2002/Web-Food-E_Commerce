@@ -38,8 +38,7 @@ class Connect
     public function isConnected()
     {
         if ($this->pdo) {
-            // echo "Connected to the $this->db database!";
-            return true;
+            echo "Connected to the $this->db database!";
         } else {
             echo "Failed to connect to the $this->db database!";
         }
