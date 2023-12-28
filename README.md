@@ -42,7 +42,8 @@
 - **One product has many order items:** A single product can be ordered multiple times in a single order.
 - **One customer has many orders:** A single customer can place multiple orders.
 - **One customer has many addresses:** A single customer can have multiple shipping addresses.
-**One address belongs to one customer:** A single shipping address can only belong to one customer.
+- **One address belongs to one customer:** A single shipping address can only belong to one customer.
+
 **Payment Architecture**
 
 ![Figure 3](/.eraser/6CY5E29m4gcAlKdMlCy3___JH7fWIylTdeOA9ICjaSasTFaXhh2___---figure---EWYHapoeMh0vUIVr6EvET---figure---9373nz1lATmvPVGTWjdHIg.png "Figure 3")
