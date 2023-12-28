@@ -28,27 +28,11 @@ if (isset($_SESSION['login'])) {
         <h4 class="mb-3">Billing address</h4>
         <form class="needs-validation" novalidate="">
           <div class="row g-3">
-            <div class="col-sm-6">
-              <label for="firstName" class="form-label">First name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-              <div class="invalid-feedback">
-                Valid first name is required.
-              </div>
-            </div>
-
-            <div class="col-sm-6">
-              <label for="lastName" class="form-label">Last name</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-              <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
-            </div>
 
             <div class="col-12">
-              <label for="username" class="form-label">Username</label>
+              <label for="username" class="form-label">Amount</label>
               <div class="input-group has-validation">
-                <span class="input-group-text">@</span>
-                <input type="text" class="form-control" id="username" placeholder="Username" required="">
+                <input type="text" class="form-control" name="amount" id="amount" placeholder="Amount" required="">
               <div class="invalid-feedback">
                   Your username is required.
                 </div>
