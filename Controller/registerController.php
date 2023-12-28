@@ -1,59 +1,71 @@
 <?php
-class RegisterController
-{
-    private $full_name;
+require_once 'config.php';
+
+class RegisterController {
+    private $id;
+    private $name;
     private $username;
     private $password;
     private $email;
     private $phone_number;
+    private $address;
+    private $role_user_id;
 
-    public function __construct($full_name, $username, $password, $email, $phone_number)
+    public function __construct()
     {
-        $this->full_name = $full_name;
-        $this->username = $username;
-        $this->password = $password;
-        $this->email = $email;
-        $this->phone_number = $phone_number;
+        $this->id = "";
+        $this->name = "";
+        $this->username = "";
+        $this->password = "";
+        $this->email = "";
+        $this->phone_number = "";
+        $this->address = "";
+        $this->role_user_id = "";
     }
 
-    public function register($full_name, $username, $password, $email, $phone_number)
-    {
-        $this->full_name = $full_name;
-        $this->username = $username;
-        $this->password = $password;
-        $this->email = $email;
-        $this->phone_number = $phone_number;
-
-        $this->validateInput();
-    }
 
     private function validateInput()
     {
-        if (empty($this->full_name) || empty($this->username) || empty($this->password) || empty($this->email) || empty($this->phone_number)) {
+        if (empty($this->name) || empty($this->username) || empty($this->password) || empty($this->email) || empty($this->phone_number)) {
             echo "<script>alert('Please fill all the fields.')</script>";
         } else {
             echo "<script>alert('Success')</script>";
         }
     }
 
-    public function getFullName()
+    public function registerUser($name, $username, $password, $email, $phone_number, $address, $role_user_id)
     {
-        return $this->full_name;
+        $this->name = $name;
+        $this->username = $username;
+        $this->password = $password;
+        $this->email = $email;
+        $this->phone_number = $phone_number;
+        $this->address = $address;
+        $this->role_user_id = $role_user_id;
+
+        $this->validateInput();
+        $this->insertUser();
     }
-    public function getUsername()
+
+    private function insertUser()
     {
-        return $this->username;
-    }
-    public function getPassword()
-    {
-        return $this->password;
-    }
-    public function getEmail()
-    {
-        return $this->email;
-    }
-    public function getPhoneNumber()
-    {
-        return $this->phone_number;
+        $sql = "INSERT INTO public.customer(name, username, password, email, phone_number, address, role_user_id) 
+                VALUES (?, ?, crypt(?, gen_salt('md5')), ?, ?, ?, ?)";
+        $pdo = new Connect();
+        $stmt = $pdo->pdo->prepare($sql);
+        $stmt->bindValue(1, $this->name);
+        $stmt->bindValue(2, $this->username);
+        $stmt->bindValue(3, $this->password);
+        $stmt->bindValue(4, $this->email);
+        $stmt->bindValue(5, $this->phone_number);
+        $stmt->bindValue(6, $this->address);
+        $stmt->bindValue(7, $this->role_user_id);
+        if ($stmt->execute()) {
+            echo "<script>alert('Success')</script>";
+            header("Location: login.php");
+            exit();
+        } else {
+            echo "<script>alert('Failed')</script>";
+        }
     }
 }

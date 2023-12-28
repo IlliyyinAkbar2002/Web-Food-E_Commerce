@@ -1,39 +1,36 @@
 <?php
-include("../Controller/loginController.php");
+session_start();
+include("../Controller/controller.php");
+include("../Template/headerLogin.php");
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    $password = $_POST['password'];
 
-    $loginController = new LoginController($username, $password);
-    $loginController->login($username, $password);
+    $loginController = new Controller();
+    $loginController->Auth_login($username, $password);
+}
+
+if (isset($_SESSION['logout'])) {
+    echo "<script>alert('" . $_SESSION['logout'] . "')</script>";
+    unset($_SESSION['logout']);
 }
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page Food Commerce</title>
-    <link rel="stylesheet" href="../CSS/login.css">
-</head>
-
-<body>
-    <div class="container">
-        <div class="login">
-            <h1>Login</h1>
-            <form action="login.php" method="post">
-                <input id="username" type="text" name="username" placeholder="Username">
-                <input id="password" type="password" name="password" placeholder="Password">
-                <button id="submit" type="submit" class="btn btn-primary btn-block btn-large">Submit.</button>
-                <button type="register" class="btn btn-success btn-block btn-large">Register</button>
-            </form>
-        </div>
+<div class="container">
+    <div class="login">
+        <h1>Login</h1>
+        <form action="" method="post">
+            <input id="username" type="text" name="username" placeholder="Username">
+            <input id="password" type="password" name="password" placeholder="Password">
+            <button type="submit" name="submit" id="submit" class="btn btn-primary btn-block btn-large">Login</button>
+            <!-- <button type="register" class="btn btn-success btn-block btn-large">Register</button> -->
+            <a href="register.php" class="btn btn-success btn-block btn-large">Register</a>
+        </form>
     </div>
-    <!-- <script src="../JS/login.js"></script> -->
-</body>
+</div>
 
-</html>
+<?php
+include("../Template/footerLogin.php");
+?>
